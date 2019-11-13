@@ -48,12 +48,25 @@ public class ArticleController {
 	 * @param model requestスコープ
 	 * @return 「掲示板画面」にフォワード
 	 */
+//	@RequestMapping("")
+//	public String index(Model model) {
+//		List<Article> articleList = articleRepository.findAll();
+//		for (Article article : articleList) {
+//			article.setCommentList(commentRepository.findByArticleId(article.getId())); 
+//		}
+//		model.addAttribute("articleList", articleList);
+//		return "BulletinBoard";
+//	}
+	
+	/**
+	 * 記事一覧を表示する.
+	 * 
+	 * @param model requestスコープ
+	 * @return 「掲示板画面」にフォワード
+	 */
 	@RequestMapping("")
 	public String index(Model model) {
 		List<Article> articleList = articleRepository.findAll();
-		for (Article article : articleList) {
-			article.setCommentList(commentRepository.findByArticleId(article.getId())); 
-		}
 		model.addAttribute("articleList", articleList);
 		return "BulletinBoard";
 	}
